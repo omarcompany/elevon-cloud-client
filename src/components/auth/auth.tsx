@@ -2,12 +2,8 @@ import { FormEvent, useRef } from 'react';
 
 import { AuthFormInput } from './auth-form-input';
 import { AuthFormLabel } from './auth-form-label';
+import { ErrorMessage } from '../../const';
 import { submitAuthMethod } from '../../types';
-
-enum ErrorMessage {
-  Email = 'Incorrect email, e.g. name@mail.ru',
-  Password = "Password must have at least a number and a letter and mustn't contain spaces",
-}
 
 interface IAuthProps {
   submitTitle: string;
@@ -60,7 +56,10 @@ export const Auth = ({
 
     if (emailRef.current !== null && passwordRef.current !== null) {
       if (handleSubmit) {
-        handleSubmit(event, emailRef.current.value, passwordRef.current.value);
+        handleSubmit(event, {
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        });
       }
     }
   };
