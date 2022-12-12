@@ -15,56 +15,49 @@
     <title>Elevon cloud</title>
   </head>
 
-  <body class="root">
-    <header>
-      <nav class="navbar">
-        <div class="navbar__logo">
-          <img src="" alt="logotype" class="navbar__logo__image" />
-          <p class="navbar__logo__description">Elevon cloud</p>
+  <body class="page">
+    <div class="filelist">
+      <div class="filelist__header">
+        <div class="filelist__header__name">Name</div>
+        <div class="filelist__header__date">Date</div>
+        <div class="filelist__header__size">Size</div>
+      </div>
+      <div class="file">
+        <div class="file__name">
+          <img
+            class="file__name__icon"
+            src="/public/images/folder-icon.svg"
+            alt="file icon"
+          />
+          <div class="file__name__text">Pictures</div>
         </div>
-        <div class="navbar__auth">
-          <a class="navbar__auth__link" href="#">Sign in</a>
-          <a class="navbar__auth__link" href="#">Sign up</a>
+        <div class="file__date">15 August 2022</div>
+        <div class="file__size">5 KB</div>
+      </div>
+      <div class="file">
+        <div class="file__name">
+          <img
+            class="file__name__icon"
+            src="/public/images/folder-icon.svg"
+            alt="file icon"
+          />
+          <div class="file__name__text">Music</div>
         </div>
-      </nav>
-    </header>
-    <main>
-      <form class="auth__form">
-        <label class="auth__form__label">
-          <input
-            class="auth__form__input"
-            type="text"
-            id="name"
-            name="auth__form__name"
-            placeholder="Name..."
+        <div class="file__date">16 August 2022</div>
+        <div class="file__size">3 KB</div>
+      </div>
+      <div class="file">
+        <div class="file__name">
+          <img
+            class="file__name__icon"
+            src="/public/images/folder-icon.svg"
+            alt="file icon"
           />
-        </label>
-        <label class="auth__form__label">
-          <input
-            class="auth__form__input"
-            type="email"
-            id="email"
-            name="auth__form__email"
-            placeholder="Email..."
-          />
-        </label>
-        <label class="auth__form__label">
-          <input
-            class="auth__form__input"
-            type="password"
-            id="password"
-            name="auth__form__password"
-            placeholder="Password..."
-          />
-        </label>
-        <input
-          class="auth__form__submit"
-          type="submit"
-          id="submit"
-          name="auth__form__submit"
-          value="Sign up"
-        />
-      </form>
-    </main>
+          <div class="file__name__text">Images</div>
+        </div>
+        <div class="file__date">10 August 2022</div>
+        <div class="file__size">17 KB</div>
+      </div>
+    </div>
   </body>
 </html>

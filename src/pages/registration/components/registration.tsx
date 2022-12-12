@@ -4,7 +4,7 @@ import { Auth } from '../../../components/auth/auth';
 import { AuthFormInput } from '../../../components/auth/auth-form-input';
 import { AuthFormLabel } from '../../../components/auth/auth-form-label';
 import { ErrorMessage } from '../../../const';
-import { singUp } from '../../../store/api-ction/registation';
+import { singUp } from '../../../store/api-action/registation';
 import { store } from '../../../store/store';
 import { submitAuthMethod } from '../../../types';
 

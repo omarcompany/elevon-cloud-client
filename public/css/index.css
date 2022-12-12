@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.filelist__header {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+
+.file {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+
+.file__name {
+  display: flex;
+  column-gap: 5px;
+}
+
+.navbar {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
+
+.navbar__auth {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+}
