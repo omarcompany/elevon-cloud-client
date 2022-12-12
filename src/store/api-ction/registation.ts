@@ -7,7 +7,7 @@ export const singUp = createAsyncThunk(
   'signup',
   async ({ name, email, password }: IUserData) => {
     try {
-      await api.post<string>('/signup', {
+      await api.post('/signup', {
         name,
         email,
         password,

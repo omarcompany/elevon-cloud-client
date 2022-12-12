@@ -9,3 +9,9 @@ export enum ErrorMessage {
   Password = "Password must have at least a number and a letter and mustn't contain spaces",
   Name = "Name mustn't contain spaces",
 }
+
+export enum AuthorizationStatus {
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
+}
