@@ -1,7 +1,23 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-interface IDefaultState {}
+import { IFile } from '../../interfaces';
+import { setCurrentDir, setFiles } from '../action';
 
-export const defaultState: IDefaultState = {};
+interface IDefaultState {
+  files: Array<IFile>;
+  currentDir: string;
+}
 
-export const fileReducer = createReducer(defaultState, (builder) => {});
+export const defaultState: IDefaultState = {
+  files: [],
+  currentDir: '',
+};
+
+export const fileReducer = createReducer(defaultState, (builder) => {
+  builder.addCase(setFiles, (state, action) => {
+    state.files = action.payload;
+  });
+  builder.addCase(setCurrentDir, (state, action) => {
+    state.currentDir = action.payload;
+  });
+});

@@ -1,5 +1,5 @@
 import { Auth } from '../../../components/auth/auth';
-import { signIn } from '../../../store/api-ction/login';
+import { signIn } from '../../../store/api-action/login';
 import { store } from '../../../store/store';
 import { submitAuthMethod } from '../../../types';
 

@@ -6,7 +6,7 @@ export const NotFoundPage = (): JSX.Element => {
   return (
     <section>
       <h1>404. Page not found</h1>
-      <Link to={AppRoute.Registration}>Return to main page</Link>
+      <Link to={AppRoute.Main}>Return to main page</Link>
     </section>
   );
 };

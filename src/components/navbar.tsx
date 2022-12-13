@@ -4,7 +4,7 @@ import { AppRoute, AuthorizationStatus } from '../const';
 import { logout } from '../utils';
 import { useAppSelector } from '../store/hooks';
 
-export const Navigation = (): JSX.Element => {
+export const Navbar = (): JSX.Element => {
   const authStatus = useAppSelector((store) => store.user.authStatus);
 
   const isAuth = authStatus === AuthorizationStatus.Auth;
@@ -12,7 +12,7 @@ export const Navigation = (): JSX.Element => {
   return (
     <nav className="navbar">
       <div className="navbar__logo">
-        <img src="" alt="logotype" className="navbar__logo__image" />
+        <img src="./images/logo.svg" alt="logotype" className="navbar__logo__image" />
         <p className="navbar__logo__description">Elevon cloud</p>
       </div>
       <div className="navbar__auth">
