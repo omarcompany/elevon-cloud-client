@@ -19,16 +19,7 @@ export const FileList = (): JSX.Element => {
     <div className="filelist">
       <FileListHeader />
       {files.map((file) => {
-        return (
-          <File
-            key={file.id}
-            id={file.id}
-            name={file.name}
-            type={file.type}
-            date={file.date ?? '---'}
-            size={file.size ?? '---'}
-          />
-        );
+        return <File key={file.id} file={file} />;
       })}
     </div>
   );

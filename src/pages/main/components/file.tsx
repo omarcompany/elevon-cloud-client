@@ -1,28 +1,18 @@
 import { getFiles } from '../../../store/api-action/get-files';
-import { setCurrentDir } from '../../../store/action';
+import { IFile } from '../../../interfaces';
+import { setCurrentDir, addDirToPath } from '../../../store/action';
 import { store } from '../../../store/store';
 
-interface IFileProps {
-  id: string;
-  name: string;
-  date: string;
-  type: string;
-  size: string | null;
-}
+export const File = ({ file }: { file: IFile }): JSX.Element => {
+  const { name, date, type, size } = file;
 
-export const File = ({
-  id,
-  name,
-  date,
-  type,
-  size,
-}: IFileProps): JSX.Element => {
   const fileSize = type === 'dir' ? '---' : size;
 
   const handleDoubleClick = () => {
     if (type === 'dir') {
-      store.dispatch(setCurrentDir(id));
-      store.dispatch(getFiles(id));
+      store.dispatch(addDirToPath(file))
+      store.dispatch(setCurrentDir(file));
+      store.dispatch(getFiles(file));
     }
   };
 

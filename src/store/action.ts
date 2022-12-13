@@ -11,8 +11,12 @@ export const setUserData = createAction<IUserData | null>('user/setUserData');
 
 export const setFiles = createAction<Array<IFile>>('files/setFiles');
 
-export const setCurrentDir = createAction<string>('files/setCurrentDir');
+export const setCurrentDir = createAction<IFile | null>('files/setCurrentDir');
 
-export const openPopup = createAction<PopupType>('files/openPopup');
+export const addDirToPath = createAction<IFile>('files/addDirToPath');
 
-export const closePopup = createAction('files/closePopup');
+export const moveToDir = createAction<IFile | null>('files/moveToDir');
+
+export const openPopup = createAction<PopupType>('popup/openPopup');
+
+export const closePopup = createAction('popup/closePopup');

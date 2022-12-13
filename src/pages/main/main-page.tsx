@@ -8,6 +8,7 @@ export const MainPage = (): JSX.Element => {
   return (
     <>
       <Navbar />
+      <FileList />
       <button
         onClick={() => {
           store.dispatch(openPopup(PopupType.NewFolder));
@@ -15,7 +16,6 @@ export const MainPage = (): JSX.Element => {
       >
         New folder
       </button>
-      <FileList />
     </>
   );
 };
