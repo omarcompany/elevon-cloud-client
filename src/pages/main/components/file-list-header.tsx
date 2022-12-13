@@ -1,9 +1,14 @@
+import { DirPath } from './dir-path';
+
 export const FileListHeader = (): JSX.Element => {
   return (
     <div className="filelist__header">
-      <div className="filelist__header__name">Name</div>
-      <div className="filelist__header__date">Date</div>
-      <div className="filelist__header__size">Size</div>
+      <DirPath />
+      <div className="filelist__header__bar">
+        <p className="filelist__header__bar__label">Name</p>
+        <p className="filelist__header__bar__label">Date</p>
+        <p className="filelist__header__bar__label">Size</p>
+      </div>
     </div>
   );
 };

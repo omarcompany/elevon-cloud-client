@@ -21,7 +21,7 @@ export const PopupNewFolder = (): JSX.Element | null => {
 
     const folderName = nameRef.current?.value || 'untitled';
 
-    store.dispatch(createFolder({ name: folderName, parent: currentDir }));
+    store.dispatch(createFolder({ name: folderName, parent: currentDir?.id }));
     store.dispatch(closePopup());
   };
 

@@ -24,5 +24,6 @@ export const adaptFileToClient = (file: IFileServer): IFile => {
     date: file.createdAt.toString(),
     type: file.type,
     size,
+    path: file.path,
   };
 };

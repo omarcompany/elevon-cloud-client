@@ -8,6 +8,7 @@ export interface IFile {
   id: string;
   name: string;
   type: string;
+  path: string;
   date?: string;
   size?: string | null;
   parent?: string;

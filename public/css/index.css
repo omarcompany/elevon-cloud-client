@@ -12,9 +12,55 @@ code {
     monospace;
 }
 
+.filelist {
+  display: flex;
+  flex-direction: column;
+}
+
 .filelist__header {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+  margin: 0;
+
+  row-gap: 10px;
+}
+
+.dir__path {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  column-gap: 5px;
+}
+
+.dir__path__item {
+  margin: 0;
+  padding: 0;
+
+  font-weight: bold;
+}
+
+.dir__path__item:after {
+  content: ' >';
+}
+
+.dir__path__item:last-child:after {
+  content: '';
+}
+
+.filelist__header__bar {
+  padding: 0;
+  margin: 0;
+
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
+}
+
+.filelist__header__bar__label {
+  margin: 0;
+  padding: 0;
 }
 
 .file {
