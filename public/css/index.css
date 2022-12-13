@@ -43,3 +43,27 @@ code {
   align-items: center;
   column-gap: 5px;
 }
+
+.popup {
+  position: fixed;
+  display: flex;
+
+  width: 300px;
+  padding: 20px;
+
+  left: calc(50% - (300px) / 2);
+  top: 195px;
+
+  border: solid;
+  border-width: 1px;
+  border-color: skyblue;
+  border-radius: 3%;
+
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.popup__header {
+  display: flex;
+  justify-content: space-between;
+}
