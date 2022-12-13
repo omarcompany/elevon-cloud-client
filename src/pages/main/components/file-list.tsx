@@ -30,14 +30,6 @@ export const FileList = (): JSX.Element => {
           />
         );
       })}
-      /*Test code */
-      {/* <div
-        onClick={() => {
-          store.dispatch(createFolder({ name: 'test Folder', parent: currentDir }));
-        }}
-      >
-        New folder
-      </div> */}
     </div>
   );
 };

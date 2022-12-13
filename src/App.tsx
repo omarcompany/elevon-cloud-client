@@ -10,6 +10,7 @@ import { RegistrationPage } from './pages/registration/registration-page';
 import { getToken } from './services/token';
 import { setAuthStatus } from './store/action';
 import { store } from './store/store';
+import { PopupNewFolder } from './components/popups/popup-new-folder';
 
 function App() {
   if (getToken()) {
@@ -17,21 +18,24 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path={AppRoute.Main}
-          element={
-            <PrivateRoute>
-              <MainPage />
-            </PrivateRoute>
-          }
-        />
-        <Route path={AppRoute.Registration} element={<RegistrationPage />} />
-        <Route path={AppRoute.Login} element={<LoginPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <PopupNewFolder />
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path={AppRoute.Main}
+            element={
+              <PrivateRoute>
+                <MainPage />
+              </PrivateRoute>
+            }
+          />
+          <Route path={AppRoute.Registration} element={<RegistrationPage />} />
+          <Route path={AppRoute.Login} element={<LoginPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
