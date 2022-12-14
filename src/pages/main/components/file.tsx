@@ -8,6 +8,8 @@ export const File = ({ file }: { file: IFile }): JSX.Element => {
 
   const fileSize = type === 'dir' ? '---' : size;
 
+  const icon = type === 'dir' ? "./images/folder-icon.svg" : "./images/file-icon.svg"
+
   const handleDoubleClick = () => {
     if (type === 'dir') {
       store.dispatch(addDirToPath(file))
@@ -20,8 +22,10 @@ export const File = ({ file }: { file: IFile }): JSX.Element => {
     <div onDoubleClick={handleDoubleClick} className="file">
       <div className="file__name">
         <img
+          height={32}
+          width={32}
           className="file__name__icon"
-          src="./images/folder-icon.svg"
+          src={icon}
           alt="file icon"
         />
         <div className="file__name__text">{name}</div>

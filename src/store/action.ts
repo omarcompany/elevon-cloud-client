@@ -11,6 +11,8 @@ export const setUserData = createAction<IUserData | null>('user/setUserData');
 
 export const setFiles = createAction<Array<IFile>>('files/setFiles');
 
+export const addFile = createAction<IFile>('files/addFile');
+
 export const setCurrentDir = createAction<IFile | null>('files/setCurrentDir');
 
 export const addDirToPath = createAction<IFile>('files/addDirToPath');
