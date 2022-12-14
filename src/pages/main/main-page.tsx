@@ -3,6 +3,7 @@ import { Navbar } from '../../components/navbar';
 import { openPopup } from '../../store/action';
 import { PopupType } from '../../const';
 import { store } from '../../store/store';
+import { FileUploader } from './components/file-uploader';
 
 export const MainPage = (): JSX.Element => {
   return (
@@ -16,6 +17,7 @@ export const MainPage = (): JSX.Element => {
       >
         New folder
       </button>
+      <FileUploader />
     </>
   );
 };

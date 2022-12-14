@@ -71,6 +71,8 @@ code {
 .file__name {
   display: flex;
   column-gap: 5px;
+
+  align-items: center;
 }
 
 .navbar {
@@ -112,4 +114,16 @@ code {
 .popup__header {
   display: flex;
   justify-content: space-between;
+}
+
+.file__upload__input {
+  display: none;
+}
+
+.file__upload__label {
+  border: solid;
+  border-width: 1px;
+  border-color: black;
+
+  background-color: skyblue;
 }
