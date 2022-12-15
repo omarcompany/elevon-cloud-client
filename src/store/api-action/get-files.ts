@@ -6,7 +6,7 @@ import { setFiles } from '../action';
 import { IFile } from '../../interfaces';
 
 export const getFiles = createAsyncThunk(
-  'getFiles',
+  'files/getFiles',
   async (file: IFile | null) => {
     try {
       const result = await api.get(`/files${file ? '?parent=' + file.id : ''}`);

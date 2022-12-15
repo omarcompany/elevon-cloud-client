@@ -10,7 +10,7 @@ interface IUploadFile {
 }
 
 export const uploadFile = createAsyncThunk(
-  'upload-file',
+  'files/upload-file',
   async ({ file, parent }: IUploadFile) => {
     try {
       const formData = new FormData();
