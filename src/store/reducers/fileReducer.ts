@@ -7,18 +7,21 @@ import {
   addDirToPath,
   setFiles,
   addFile,
+  setSelectedFile,
 } from '../action';
 
 interface IDefaultState {
   files: Array<IFile>;
   currentDir: IFile | null;
   dirStack: Array<IFile>;
+  selectedFile: IFile | null;
 }
 
 export const defaultState: IDefaultState = {
   files: [],
   currentDir: null,
   dirStack: [],
+  selectedFile: null,
 };
 
 export const fileReducer = createReducer(defaultState, (builder) => {
@@ -57,5 +60,9 @@ export const fileReducer = createReducer(defaultState, (builder) => {
     }
 
     state.dirStack.splice(index + 1);
+  });
+
+  builder.addCase(setSelectedFile, (state, action) => {
+    state.selectedFile = action.payload;
   });
 });

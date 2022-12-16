@@ -15,6 +15,10 @@ export const addFile = createAction<IFile>('files/addFile');
 
 export const setCurrentDir = createAction<IFile | null>('files/setCurrentDir');
 
+export const setSelectedFile = createAction<IFile | null>(
+  'files/setSelectedFile'
+);
+
 export const addDirToPath = createAction<IFile>('files/addDirToPath');
 
 export const moveToDir = createAction<IFile | null>('files/moveToDir');

@@ -1,6 +1,10 @@
 import { getFiles } from '../../../store/api-action/get-files';
 import { IFile } from '../../../interfaces';
-import { moveToDir, setCurrentDir } from '../../../store/action';
+import {
+  moveToDir,
+  setCurrentDir,
+  setSelectedFile,
+} from '../../../store/action';
 import { store } from '../../../store/store';
 
 export const DirPathItem = ({ file }: { file?: IFile }) => {
@@ -8,6 +12,7 @@ export const DirPathItem = ({ file }: { file?: IFile }) => {
     const dir = file ?? null;
     store.dispatch(moveToDir(dir));
     store.dispatch(setCurrentDir(dir));
+    store.dispatch(setSelectedFile(null));
     store.dispatch(getFiles(dir));
   };
   return (
