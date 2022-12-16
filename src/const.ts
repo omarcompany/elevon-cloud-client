@@ -18,5 +18,6 @@ export enum AuthorizationStatus {
 
 export enum PopupType {
   NewFolder,
+  DeletingConfirm,
   None,
 }

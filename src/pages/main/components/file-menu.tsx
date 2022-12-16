@@ -1,6 +1,8 @@
 import { store } from '../../../store/store';
 import { useAppSelector } from '../../../store/hooks';
 import { downloadFile } from '../../../store/api-action/download-file';
+import { openPopup } from '../../../store/action';
+import { PopupType } from '../../../const';
 
 export const FileMenu = (): JSX.Element => {
   const selectedFile = useAppSelector((store) => store.file.selectedFile);
@@ -29,6 +31,7 @@ export const FileMenu = (): JSX.Element => {
         className="file-menu__icon"
         alt="trash"
         src="./images/trash-icon.svg"
+        onClick={() => store.dispatch(openPopup(PopupType.DeletingConfirm))}
       />
     </div>
   );
