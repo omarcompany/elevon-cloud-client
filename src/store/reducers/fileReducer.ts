@@ -2,11 +2,12 @@ import { createReducer } from '@reduxjs/toolkit';
 
 import { IFile } from '../../interfaces';
 import {
-  moveToDir,
-  setCurrentDir,
   addDirToPath,
-  setFiles,
   addFile,
+  moveToDir,
+  removeFileFromState,
+  setCurrentDir,
+  setFiles,
   setSelectedFile,
 } from '../action';
 
@@ -64,5 +65,14 @@ export const fileReducer = createReducer(defaultState, (builder) => {
 
   builder.addCase(setSelectedFile, (state, action) => {
     state.selectedFile = action.payload;
+  });
+
+  builder.addCase(removeFileFromState, (state, action) => {
+    const id = action.payload;
+    const index = state.files.findIndex((item) => item.id === id);
+
+    if (index !== -1) {
+      state.files.splice(index, 1);
+    }
   });
 });

@@ -13,6 +13,10 @@ export const setFiles = createAction<Array<IFile>>('files/setFiles');
 
 export const addFile = createAction<IFile>('files/addFile');
 
+export const removeFileFromState = createAction<string>(
+  'files/removeFileFromState'
+);
+
 export const setCurrentDir = createAction<IFile | null>('files/setCurrentDir');
 
 export const setSelectedFile = createAction<IFile | null>(
