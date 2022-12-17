@@ -4,7 +4,7 @@ import { FileMenu } from './file-menu';
 export const FileListHeader = (): JSX.Element => {
   return (
     <div className="filelist__header">
-      <div className='filelist__header__menu'>
+      <div className="filelist__header__menu">
         <DirPath />
         <FileMenu />
       </div>

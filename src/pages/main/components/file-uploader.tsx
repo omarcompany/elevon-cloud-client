@@ -13,7 +13,7 @@ export const FileUploader = (): JSX.Element => {
   };
 
   return (
-    <label className="file__upload__label">
+    <label className="button">
       Upload file
       <input
         className="file__upload__input"
