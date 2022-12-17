@@ -6,10 +6,16 @@ export const DirPath = () => {
 
   return (
     <div className="dir__path">
-      <DirPathItem />
+      <DirPathItem isLast={dirStack.length === 0} />
 
-      {dirStack?.map((file) => {
-        return <DirPathItem file={file} key={file.id} />;
+      {dirStack?.map((file, index) => {
+        return (
+          <DirPathItem
+            isLast={dirStack.length - 1 === index}
+            file={file}
+            key={file.id}
+          />
+        );
       })}
     </div>
   );

@@ -7,7 +7,11 @@ import {
 } from '../../../store/action';
 import { store } from '../../../store/store';
 
-export const DirPathItem = ({ file }: { file?: IFile }) => {
+interface IDirPathItemProps {
+  isLast: boolean;
+  file?: IFile;
+}
+export const DirPathItem = ({ isLast, file }: IDirPathItemProps) => {
   const clickHandler = () => {
     const dir = file ?? null;
     store.dispatch(moveToDir(dir));
@@ -16,8 +20,11 @@ export const DirPathItem = ({ file }: { file?: IFile }) => {
     store.dispatch(getFiles(dir));
   };
   return (
-    <p className="dir__path__item" onClick={clickHandler}>
-      {file?.name ?? 'Home'}
-    </p>
+    <div className="dir__path__button-wrapper">
+      <button className="dir__path__button" onClick={clickHandler}>
+        {file?.name ?? 'Home'}
+      </button>
+      {!isLast && <p className="dir__path__next">{`>`}</p>}
+    </div>
   );
 };
