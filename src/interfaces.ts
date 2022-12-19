@@ -1,7 +1,16 @@
 export interface IUserData {
   email: string;
-  password: string;
-  name?: string;
+  avatar: string;
+  name: string;
+}
+
+export interface IUserDataServer {
+  email: string;
+  avatar: string;
+  name: string;
+  files: Array<IFile>;
+  usedSpace: number;
+  id: string;
 }
 
 export interface IFile {
@@ -21,4 +30,10 @@ export interface IFileServer {
   path: string;
   createdAt: Date;
   size: number;
+}
+
+export interface IAuthData {
+  email: string;
+  password: string;
+  name?: string;
 }

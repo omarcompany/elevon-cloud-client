@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
+import { BACKEND_URL } from '../const';
 import { getToken } from './token';
 import { getTokenWithType } from '../utils';
 
-const BACKEND_URL = 'http://localhost:5001';
 const REQUEST_TIMEOUT = 5000;
 
 export const createAPI = (): AxiosInstance => {
