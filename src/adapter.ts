@@ -1,4 +1,4 @@
-import { IFile, IFileServer } from './interfaces';
+import { IFile, IFileServer, IUserData, IUserDataServer } from './interfaces';
 
 const convertBytes = (bytes: number) => {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -25,5 +25,13 @@ export const adaptFileToClient = (file: IFileServer): IFile => {
     type: file.type,
     size,
     path: file.path,
+  };
+};
+
+export const adaptUserToClient = (user: IUserDataServer): IUserData => {
+  return {
+    email: user.email,
+    avatar: user.avatar,
+    name: user.name,
   };
 };

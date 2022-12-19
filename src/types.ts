@@ -1,8 +1,8 @@
 import { FormEvent } from 'react';
 
-import { IUserData } from './interfaces';
+import { IAuthData } from './interfaces';
 
 export type submitAuthMethod = (
   event: FormEvent<HTMLFormElement>,
-  userData: IUserData
+  userData: IAuthData
 ) => void;

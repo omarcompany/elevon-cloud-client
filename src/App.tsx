@@ -7,6 +7,7 @@ import { MainPage } from './pages/main/main-page';
 import { NotFoundPage } from './pages/not-found/not-found-page';
 import { PopupManager } from './components/popups/popup-manager';
 import { PrivateRoute } from './components/private-route';
+import { ProfilePage } from './pages/profile/profile-page';
 import { RegistrationPage } from './pages/registration/registration-page';
 import { setAuthStatus } from './store/action';
 import { store } from './store/store';
@@ -26,6 +27,14 @@ function App() {
             element={
               <PrivateRoute>
                 <MainPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path={AppRoute.Profile}
+            element={
+              <PrivateRoute>
+                <ProfilePage />
               </PrivateRoute>
             }
           />

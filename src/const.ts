@@ -2,6 +2,7 @@ export enum AppRoute {
   Main = '/',
   Registration = '/signup',
   Login = '/signin',
+  Profile = 'profile',
 }
 
 export enum ErrorMessage {
@@ -21,3 +22,5 @@ export enum PopupType {
   DeletingConfirm,
   None,
 }
+
+export const BACKEND_URL = 'http://localhost:5001';
