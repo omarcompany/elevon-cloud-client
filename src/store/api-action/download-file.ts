@@ -10,10 +10,13 @@ export const downloadFile = createAsyncThunk(
       const result = await api.get(`/files/download/${file.id}`, {
         responseType: 'blob',
       });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(result.data);
-      link.download = file.name;
-      link.click();
+      const aElement = document.createElement('a');
+      aElement.setAttribute('download', file.name);
+
+      const href = URL.createObjectURL(result.data);
+      aElement.href = href;
+      aElement.click();
+      URL.revokeObjectURL(href);
     } catch (error) {
       console.log(error);
     }
