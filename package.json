@@ -25,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && scp -r ./build/* elevon-server@78.24.219.233:/var/www/www-root/data/www/elevon-cloud.fvds.ru"
   },
   "eslintConfig": {
     "extends": [

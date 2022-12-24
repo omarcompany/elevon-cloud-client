@@ -1,3 +1,5 @@
+import config from './config.json';
+
 export enum AppRoute {
   Main = '/',
   Registration = '/signup',
@@ -23,4 +25,4 @@ export enum PopupType {
   None,
 }
 
-export const BACKEND_URL = 'http://localhost:5001';
+export const BACKEND_URL = config.SERVER_URL;
