@@ -1,10 +1,10 @@
 import { FileList } from './components/file-list';
-import { Navbar } from '../../components/navbar';
+import { MainNavbar } from './components/main-navbar';
 
 export const MainPage = (): JSX.Element => {
   return (
     <>
-      <Navbar />
+      <MainNavbar />
       <FileList />
     </>
   );

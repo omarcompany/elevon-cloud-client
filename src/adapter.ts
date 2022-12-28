@@ -1,4 +1,11 @@
-import { IFile, IFileServer, IUserData, IUserDataServer } from './interfaces';
+import {
+  IActivatedUser,
+  IActivatedUserServer,
+  IDefaultUser,
+  IDefaultUserServer,
+  IFile,
+  IFileServer,
+} from './interfaces';
 
 const convertBytes = (bytes: number) => {
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -28,10 +35,18 @@ export const adaptFileToClient = (file: IFileServer): IFile => {
   };
 };
 
-export const adaptUserToClient = (user: IUserDataServer): IUserData => {
+export const adaptDefaultUserToClient = (
+  user: IDefaultUserServer
+): IDefaultUser => {
   return {
-    email: user.email,
-    avatar: user.avatar,
-    name: user.name,
+    ...user,
+  };
+};
+
+export const adaptActivatedtUserToClient = (
+  user: IActivatedUserServer
+): IActivatedUser => {
+  return {
+    ...user,
   };
 };

@@ -1,7 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { adaptFileToClient } from '../../adapter';
+import { IFileServer } from '../../interfaces';
+import { addFile } from '../action';
 
 import { api, store } from '../store';
-import { getFiles } from './get-files';
 
 interface INewDir {
   name: string;
@@ -18,8 +20,8 @@ export const createFolder = createAsyncThunk(
     }
 
     try {
-      await api.post('/mkdir', dir);
-      store.dispatch(getFiles(store.getState().file.currentDir));
+      const { data } = await api.post<IFileServer>('/mkdir', dir);
+      store.dispatch(addFile(adaptFileToClient(data)));
     } catch (error) {
       console.log(error);
     }

@@ -11,7 +11,7 @@ export const Profile = (): JSX.Element => {
     store.dispatch(getUserData());
   }, []);
 
-  const user = useAppSelector((store) => store.user.userData);
+  const user = useAppSelector((store) => store.user.activatedUser);
 
   const handleSelectAvatar = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;

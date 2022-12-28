@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { adaptFileToClient } from '../../adapter';
+import { IFileServer } from '../../interfaces';
 import { addFile } from '../action';
 import { api, store } from '../store';
 
@@ -18,8 +19,8 @@ export const uploadFile = createAsyncThunk(
       if (parent) {
         formData.append('parent', parent);
       }
-      const result = await api.post(`/files/upload`, formData);
-      store.dispatch(addFile(adaptFileToClient(result.data)));
+      const { data } = await api.post<IFileServer>(`/files/upload`, formData);
+      store.dispatch(addFile(adaptFileToClient(data)));
     } catch (error) {
       console.log(error);
     }

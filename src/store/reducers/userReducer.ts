@@ -1,16 +1,18 @@
 import { createReducer } from '@reduxjs/toolkit';
 
 import { AuthorizationStatus } from '../../const';
-import { IUserData } from '../../interfaces';
-import { setAuthStatus, setUserData } from '../action';
+import { IActivatedUser, IDefaultUser } from '../../interfaces';
+import { setActivatedUser, setAuthStatus, setDefaultUser } from '../action';
 
 interface IDefaultState {
-  userData: IUserData | null;
+  defaultUser: IDefaultUser | null;
+  activatedUser: IActivatedUser | null;
   authStatus: AuthorizationStatus;
 }
 
 export const defaultState: IDefaultState = {
-  userData: null,
+  defaultUser: null,
+  activatedUser: null,
   authStatus: AuthorizationStatus.Unknown,
 };
 
@@ -18,7 +20,10 @@ export const userReducer = createReducer(defaultState, (builder) => {
   builder.addCase(setAuthStatus, (state, action) => {
     state.authStatus = action.payload;
   });
-  builder.addCase(setUserData, (state, action) => {
-    state.userData = action.payload;
+  builder.addCase(setDefaultUser, (state, action) => {
+    state.defaultUser = action.payload;
+  });
+  builder.addCase(setActivatedUser, (state, action) => {
+    state.activatedUser = action.payload;
   });
 });

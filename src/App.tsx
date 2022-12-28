@@ -1,7 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import { AppRoute, AuthorizationStatus } from './const';
-import { getToken } from './services/token';
+import { ActivationNeedPage } from './pages/activation-need/activation-need-page';
+import { AppRoute } from './const';
+import { browserHistory } from './browser-history';
+import { getUserData } from './store/api-action/get-user-data';
+import { HistoryRouter } from './components/history-router/history-router';
 import { LoginPage } from './pages/login/login-page';
 import { MainPage } from './pages/main/main-page';
 import { NotFoundPage } from './pages/not-found/not-found-page';
@@ -9,18 +12,15 @@ import { PopupManager } from './components/popups/popup-manager';
 import { PrivateRoute } from './components/private-route';
 import { ProfilePage } from './pages/profile/profile-page';
 import { RegistrationPage } from './pages/registration/registration-page';
-import { setAuthStatus } from './store/action';
 import { store } from './store/store';
 
-function App() {
-  if (getToken()) {
-    store.dispatch(setAuthStatus(AuthorizationStatus.Auth));
-  }
+store.dispatch(getUserData());
 
+function App() {
   return (
     <>
       <PopupManager />
-      <BrowserRouter>
+      <HistoryRouter history={browserHistory}>
         <Routes>
           <Route
             path={AppRoute.Main}
@@ -40,9 +40,13 @@ function App() {
           />
           <Route path={AppRoute.Registration} element={<RegistrationPage />} />
           <Route path={AppRoute.Login} element={<LoginPage />} />
+          <Route
+            path={AppRoute.ActivationNeed}
+            element={<ActivationNeedPage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </BrowserRouter>
+      </HistoryRouter>
     </>
   );
 }
