@@ -1,22 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { adaptActivatedtUserToClient } from '../../adapter';
 import { api, store } from '../store';
 import { AuthorizationStatus } from '../../const';
-import { IAuthData } from '../../interfaces';
+import { IActivatedUserServer, IAuthData } from '../../interfaces';
 import { saveToken } from '../../services/token';
-import { setAuthStatus, setUserData } from '../action';
-import { adaptUserToClient } from '../../adapter';
+import { setActivatedUser, setAuthStatus } from '../action';
 
 export const signIn = createAsyncThunk(
   'signin',
   async ({ email, password }: IAuthData) => {
     try {
-      const result = await api.post('/signin', {
+      const { data } = await api.post<IActivatedUserServer>('/signin', {
         email,
         password,
       });
-      saveToken(result.data.token);
-      store.dispatch(setUserData(adaptUserToClient(result.data.user)));
+      const activatedUser = adaptActivatedtUserToClient(data);
+      store.dispatch(setActivatedUser(activatedUser));
+      saveToken(activatedUser.accessToken ?? '');
       store.dispatch(setAuthStatus(AuthorizationStatus.Auth));
     } catch (error) {
       console.log(error);

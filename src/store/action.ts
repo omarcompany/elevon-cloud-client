@@ -1,13 +1,19 @@
 import { createAction } from '@reduxjs/toolkit';
 
-import { AuthorizationStatus, PopupType } from '../const';
-import { IFile, IUserData } from '../interfaces';
+import { AppRoute, AuthorizationStatus, PopupType } from '../const';
+import { IActivatedUser, IDefaultUser, IFile } from '../interfaces';
 
 export const setAuthStatus = createAction<AuthorizationStatus>(
   'global/setAuthStatus'
 );
 
-export const setUserData = createAction<IUserData | null>('user/setUserData');
+export const setActivatedUser = createAction<IActivatedUser | null>(
+  'user/setActivatedUser'
+);
+
+export const setDefaultUser = createAction<IDefaultUser | null>(
+  'user/setDefaultUser'
+);
 
 export const setFiles = createAction<Array<IFile>>('files/setFiles');
 
@@ -30,3 +36,5 @@ export const moveToDir = createAction<IFile | null>('files/moveToDir');
 export const openPopup = createAction<PopupType>('popup/openPopup');
 
 export const closePopup = createAction('popup/closePopup');
+
+export const redirectToRoute = createAction<AppRoute>('global/redirectToRoute');

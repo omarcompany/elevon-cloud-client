@@ -1,8 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { adaptUserToClient } from '../../adapter';
-import { setUserData } from '../action';
+import { adaptActivatedtUserToClient } from '../../adapter';
 import { api, store } from '../store';
+import { IActivatedUserServer } from '../../interfaces';
+import { setActivatedUser } from '../action';
 
 export const uploadAvatar = createAsyncThunk(
   'files/upload-file',
@@ -10,8 +11,11 @@ export const uploadAvatar = createAsyncThunk(
     try {
       const formData = new FormData();
       formData.append('file', file);
-      const result = await api.post(`/user/me/avatar`, formData);
-      store.dispatch(setUserData(adaptUserToClient(result.data)));
+      const { data } = await api.post<IActivatedUserServer>(
+        `/user/me/avatar`,
+        formData
+      );
+      store.dispatch(setActivatedUser(adaptActivatedtUserToClient(data)));
     } catch (error) {
       console.log(error);
     }

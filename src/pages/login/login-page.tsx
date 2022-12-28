@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom';
 
 import { Login } from './components/login';
-import { Navbar } from '../../components/navbar';
 import { useAppSelector } from '../../store/hooks';
 import { AppRoute, AuthorizationStatus } from '../../const';
+import { LoginNavbar } from './components/login-navbar';
 
 export const LoginPage = (): JSX.Element => {
   const authorizationStatus = useAppSelector((store) => store.user.authStatus);
@@ -13,7 +13,7 @@ export const LoginPage = (): JSX.Element => {
     <Navigate to={AppRoute.Main} />
   ) : (
     <>
-      <Navbar />
+      <LoginNavbar />
       <Login />
     </>
   );

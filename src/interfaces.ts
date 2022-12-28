@@ -1,16 +1,29 @@
-export interface IUserData {
-  email: string;
-  avatar: string;
+export interface IDefaultUser {
+  id: string;
   name: string;
+  email: string;
+  isActivated: boolean;
 }
 
-export interface IUserDataServer {
-  email: string;
-  avatar: string;
-  name: string;
-  files: Array<IFile>;
+export interface IActivatedUser extends IDefaultUser {
+  diskSpace: number;
   usedSpace: number;
+  avatar: string;
+  accessToken?: string;
+}
+
+export interface IDefaultUserServer {
   id: string;
+  name: string;
+  email: string;
+  isActivated: boolean;
+}
+
+export interface IActivatedUserServer extends IDefaultUserServer {
+  diskSpace: number;
+  usedSpace: number;
+  avatar: string;
+  accessToken?: string;
 }
 
 export interface IFile {

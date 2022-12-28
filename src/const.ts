@@ -4,7 +4,8 @@ export enum AppRoute {
   Main = '/',
   Registration = '/signup',
   Login = '/signin',
-  Profile = 'profile',
+  Profile = '/profile',
+  ActivationNeed = '/activation-need'
 }
 
 export enum ErrorMessage {
