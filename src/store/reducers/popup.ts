@@ -13,7 +13,7 @@ export const defaultState: IDefaultState = {
   popupType: PopupType.None,
 };
 
-export const popupReducer = createReducer(defaultState, (builder) => {
+export const popup = createReducer(defaultState, (builder) => {
   builder.addCase(openPopup, (state, action) => {
     state.isOpen = true;
     state.popupType = action.payload;

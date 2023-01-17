@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { AppRoute, BACKEND_URL, PopupType } from '../../../const';
 import { FileUploader } from './file-uploader';
-import { logout } from '../../../utils';
+import { logout } from '../../../utils/utils';
 import { Navbar } from '../../../components/navbar';
 import { openPopup } from '../../../store/action';
 import { store } from '../../../store/store';

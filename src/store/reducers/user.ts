@@ -16,7 +16,7 @@ export const defaultState: IDefaultState = {
   authStatus: AuthorizationStatus.Unknown,
 };
 
-export const userReducer = createReducer(defaultState, (builder) => {
+export const user = createReducer(defaultState, (builder) => {
   builder.addCase(setAuthStatus, (state, action) => {
     state.authStatus = action.payload;
   });
