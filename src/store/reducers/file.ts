@@ -25,7 +25,7 @@ export const defaultState: IDefaultState = {
   selectedFile: null,
 };
 
-export const fileReducer = createReducer(defaultState, (builder) => {
+export const file = createReducer(defaultState, (builder) => {
   builder.addCase(setFiles, (state, action) => {
     state.files = action.payload;
   });

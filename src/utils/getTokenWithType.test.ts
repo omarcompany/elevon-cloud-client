@@ -1,4 +1,4 @@
-import { getTokenWithType } from './utils';
+import { getTokenWithType } from './getTokenWithType';
 
 describe('Function: getTokenWithType', () => {
   it('it should return correct string with a token type', () => {
@@ -8,6 +8,6 @@ describe('Function: getTokenWithType', () => {
 
   it('it should return error', () => {
     const token = 'some-secret';
-    expect(getTokenWithType(token)).toEqual(`Bearer${token}`);
+    expect(getTokenWithType(token)).not.toBe(`Bearer${token}`);
   });
 });

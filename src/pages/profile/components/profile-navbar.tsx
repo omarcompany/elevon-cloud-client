@@ -1,5 +1,5 @@
 import { BACKEND_URL } from '../../../const';
-import { logout } from '../../../utils';
+import { logout } from '../../../utils/utils';
 import { Navbar } from '../../../components/navbar';
 import { useAppSelector } from '../../../store/hooks';
 

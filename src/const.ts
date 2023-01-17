@@ -5,7 +5,7 @@ export enum AppRoute {
   Registration = '/signup',
   Login = '/signin',
   Profile = '/profile',
-  ActivationNeed = '/activation-need'
+  ActivationNeed = '/activation-need',
 }
 
 export enum ErrorMessage {
@@ -27,3 +27,5 @@ export enum PopupType {
 }
 
 export const BACKEND_URL = config.SERVER_URL;
+
+export const TOKEN_TYPE = 'Bearer ';

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { fileReducer } from './fileReducer';
-import { userReducer } from './userReducer';
-import { popupReducer } from './popupReducer';
+import { file } from './file';
+import { user } from './user';
+import { popup } from './popup';
 
 export const rootReducer = combineReducers({
-  file: fileReducer,
-  user: userReducer,
-  popup: popupReducer,
+  file,
+  user,
+  popup,
 });
