@@ -28,7 +28,7 @@ export const adaptFileToClient = (file: IFileServer): IFile => {
   return {
     id: file._id,
     name: file.name,
-    date: file.createdAt.toString(),
+    date: file?.createdAt?.toString(),
     type: file.type,
     size,
     path: file.path,
