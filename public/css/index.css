@@ -284,6 +284,31 @@
 .profile__name {
   padding: 0;
   margin: 0;
-  
+
   font-size: 20px;
+}
+
+.auth__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 240px;
+
+  margin: auto;
+  margin-top: 60px;
+  row-gap: 20px;
+
+  text-align: center;
+}
+
+.auth__form__header {
+  font-size: 20px;
+}
+
+.auth__form__input {
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  outline-style: none;
 }

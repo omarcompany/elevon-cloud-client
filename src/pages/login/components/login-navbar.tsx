@@ -8,7 +8,7 @@ export const LoginNavbar = (): JSX.Element => {
     <Navbar>
       <div className="navbar__auth">
         <Link
-          className="navbar__auth__link"
+          className="navbar__auth__link link button"
           to={AppRoute.Registration}
           rel="noopener noreferrer"
         >
