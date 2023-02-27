@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 import { BACKEND_URL } from '../const';
 import { getToken, saveToken } from './token';
-import { getTokenWithType } from '../utils/utils';
+import { getTokenWithType } from '../utils/getTokenWithType';
 import { IActivatedUserServer } from '../interfaces';
 import { adaptActivatedtUserToClient } from '../adapter';
 

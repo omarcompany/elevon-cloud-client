@@ -90,7 +90,7 @@ export const Auth = ({
         />
       </AuthFormLabel>
       <AuthFormInput
-        className="auth__form__submit"
+        className="auth__form__submit button"
         type="submit"
         id="submit"
         name="auth__form__submit"
