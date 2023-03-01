@@ -2,7 +2,7 @@ import { FormEvent, useRef } from 'react';
 
 import { closePopup } from '../../store/action';
 import { createFolder } from '../../store/api-action/create-folder';
-import { PortalProvider } from './portal-provider';
+import { Popup } from './popup';
 import { store } from '../../store/store';
 import { useAppSelector } from '../../store/hooks';
 
@@ -16,7 +16,7 @@ export const PopupNewFolder = (): JSX.Element | null => {
 
   const nameRef = useRef<HTMLInputElement | null>(null);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const folderName = nameRef.current?.value || 'untitled';
@@ -26,37 +26,38 @@ export const PopupNewFolder = (): JSX.Element | null => {
   };
 
   return !isOpen ? null : (
-    <PortalProvider>
-      <form className="popup" onSubmit={handleSubmit}>
-        <div className="popup__header">
-          <p className="popup__header__title">Create a new folder</p>
+    <Popup title={'Create a new folder'} submitHandler={submitHandler}>
+      <>
+        <label className="popup__label">
+          <input
+            className="popup__input"
+            type="text"
+            id={`popup__label__new-folder}`}
+            name="popup__label"
+            placeholder={'New folder...'}
+            ref={nameRef}
+          />
+        </label>
+        <div className="popup__buttons">
           <button
-            className="popup__header__close-button"
+            className="popup__cancel"
             type="button"
             title="Close"
             onClick={() => {
               store.dispatch(closePopup());
             }}
           >
-            x
+            Cancel
           </button>
+          <input
+            className="popup__submit"
+            type="submit"
+            id="submit"
+            name="popup_input_submit"
+            value="Create"
+          />
         </div>
-        <input
-          className="popup__input-text"
-          type="text"
-          id="name"
-          name="popup_input_name"
-          placeholder="New folder..."
-          ref={nameRef}
-        />
-        <input
-          className="popup__input-submit"
-          type="submit"
-          id="submit"
-          name="popup_input_submit"
-          value="Create"
-        />
-      </form>
-    </PortalProvider>
+      </>
+    </Popup>
   );
 };
