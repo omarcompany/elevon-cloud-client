@@ -1,10 +1,10 @@
 import { FormEvent } from 'react';
 
 import { closePopup, setSelectedFile } from '../../store/action';
-import { PortalProvider } from './portal-provider';
+import { deleteFile } from '../../store/api-action/delete-file';
+import { Popup } from './popup';
 import { store } from '../../store/store';
 import { useAppSelector } from '../../store/hooks';
-import { deleteFile } from '../../store/api-action/delete-file';
 
 export const PopupDeletingConfirm = (): JSX.Element | null => {
   const { isOpen, selectedFile } = useAppSelector((store) => {
@@ -26,20 +26,22 @@ export const PopupDeletingConfirm = (): JSX.Element | null => {
   };
 
   return !isOpen ? null : (
-    <PortalProvider>
-      <form className="popup" onSubmit={handleSubmit}>
-        <div className="popup__header">
-          <p className="popup__header__title">Are you sure?</p>
-        </div>
+    <Popup title="Are you sure?" submitHandler={handleSubmit}>
+      <div className="popup__buttons">
+        <button
+          className="popup__cancel"
+          onClick={() => store.dispatch(closePopup())}
+        >
+          Cancel
+        </button>
         <input
-          className="popup__input-submit"
+          className="popup__submit"
           type="submit"
           id="submit"
-          name="popup_input_submit"
+          name="popup__submit"
           value="Yes"
         />
-        <button onClick={() => store.dispatch(closePopup())}>x</button>
-      </form>
-    </PortalProvider>
+      </div>
+    </Popup>
   );
 };
